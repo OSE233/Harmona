@@ -1,9 +1,10 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const NavBar=()=> {
   const [selectedMood, setSelectedMood] = useState("Happy");
 
-  const navlinks =[
+  const navLinks =[
        {
         name: 'Home',
         href: '/'
@@ -41,34 +42,15 @@ const NavBar=()=> {
         marginBottom: "25px",
       }}
     >
-   { 
-   navlinks.map((link)=>
-  
-      <a
-        href = {link.href}
-        style={{
-          background: "none",
-          border: "none",
-          color: "white",
-          cursor: "pointer",
-          fontSize: "14px",
-          fontWeight: "bold",
-        }}
-      >
-        {link.name}
-      </a> 
-)
-
-   }
-
+  {
+                navLinks.map((link)=> 
+                <Link to={link.href}>
+                   <button>{link.name}</button>
+                </Link>
+                )
+           }
 
     </div>
-
-    
-
-   
-
-    
      
       </div>
     </div>
